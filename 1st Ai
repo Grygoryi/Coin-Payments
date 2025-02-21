@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Payment - CryptoCloud</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0b0f19;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+            background: #161b29;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .button {
+            display: inline-block;
+            background: #2a5ada;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Secure Payment</h2>
+        <p>Amount: <span id="amount"></span> <span id="currency"></span></p>
+        <p>Order ID: <span id="order_id"></span></p>
+        <a id="payButton" class="button" href="#" target="_blank">Pay Now</a>
+    </div>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const amount = urlParams.get('amount') || '0';
+            const currency = urlParams.get('currency') || 'USDT';
+            const orderId = urlParams.get('order_id') || 'N/A';
+            const paymentLink = urlParams.get('payment_link') || '#';
+
+            document.getElementById('amount').textContent = amount;
+            document.getElementById('currency').textContent = currency;
+            document.getElementById('order_id').textContent = orderId;
+            document.getElementById('payButton').href = paymentLink;
+        });
+    </script>
+</body>
+</html>
