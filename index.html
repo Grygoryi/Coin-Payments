@@ -31,27 +31,30 @@
 <style>
   body {
     font-family: 'Arial', sans-serif;
-    background-color: #0088cc;
+    background-color: #003366; /* Темно-синий фон */
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
+    color: white;
   }
 
   .payment-container {
     text-align: center;
     width: 100%;
-    max-width: 400px;
+    max-width: 500px;
+    padding: 20px;
   }
 
   .payment-header {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
   }
 
   .payment-logo {
-    width: 150px;
+    width: 180px;
+    margin-bottom: 10px;
   }
 
   .payment-tagline {
@@ -60,10 +63,10 @@
   }
 
   .payment-box {
-    background: white;
-    padding: 20px;
+    background: #ffffff;
+    padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
 
   .payment-description {
@@ -85,30 +88,39 @@
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    font-size: 16px;
   }
 
   .submit-btn {
     width: 100%;
-    background-color: #007bff;
+    background-color: #0066cc; /* Цвет кнопки */
     color: white;
-    padding: 10px;
+    padding: 12px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
   }
 
   .submit-btn:hover {
-    background-color: #0056b3;
+    background-color: #004d99; /* Цвет кнопки при наведении */
   }
 
   .payment-link {
-    margin-top: 15px;
+    margin-top: 20px;
     display: none;
   }
 
   .payment-link a {
-    color: #007bff;
+    color: #0066cc;
     font-weight: bold;
+    font-size: 16px;
+    text-decoration: none;
+  }
+
+  .payment-link a:hover {
+    text-decoration: underline;
   }
 </style>
 
