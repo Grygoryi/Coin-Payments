@@ -1,56 +1,131 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Secure Payment - CryptoCloud</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #0b0f19;
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
-        .container {
-            max-width: 400px;
-            margin: auto;
-            background: #161b29;
-            padding: 20px;
-            border-radius: 10px;
-        }
-        .button {
-            display: inline-block;
-            background: #2a5ada;
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-top: 20px;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h2>Secure Payment</h2>
-        <p>Amount: <span id="amount"></span> <span id="currency"></span></p>
-        <p>Order ID: <span id="order_id"></span></p>
-        <a id="payButton" class="button" href="#" target="_blank">Pay Now</a>
-    </div>
-    
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const amount = urlParams.get('amount') || '0';
-            const currency = urlParams.get('currency') || 'USDT';
-            const orderId = urlParams.get('order_id') || 'N/A';
-            const paymentLink = urlParams.get('payment_link') || '#';
+<div class="payment-container">
+  <div class="payment-header">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/CoinPayments.net_logo.png" alt="CoinPayments Logo" class="payment-logo">
+    <p class="payment-tagline">Crypto Payments Made <strong>Easy</strong></p>
+  </div>
 
-            document.getElementById('amount').textContent = amount;
-            document.getElementById('currency').textContent = currency;
-            document.getElementById('order_id').textContent = orderId;
-            document.getElementById('payButton').href = paymentLink;
-        });
-    </script>
-</body>
-</html>
+  <div class="payment-box">
+    <h1>Payment Request</h1>
+    <p class="payment-description">Complete your payment within 60 minutes.</p>
+
+    <form id="paymentForm">
+      <label for="amount">Amount:</label>
+      <input type="text" id="amount" name="amount" placeholder="Enter Amount" required>
+
+      <label for="currency">Currency:</label>
+      <select id="currency" name="currency" required>
+        <option value="BTC">BTC</option>
+        <option value="ETH">ETH</option>
+        <option value="USDT">USDT</option>
+      </select>
+
+      <button type="submit" class="submit-btn">Generate Payment Link</button>
+    </form>
+
+    <div id="paymentLink" class="payment-link">
+      <a href="#" target="_blank" id="generatedLink">Click here for your payment link</a>
+    </div>
+  </div>
+</div>
+
+<style>
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #0088cc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+
+  .payment-container {
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .payment-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .payment-logo {
+    width: 150px;
+  }
+
+  .payment-tagline {
+    font-size: 18px;
+    color: white;
+  }
+
+  .payment-box {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .payment-description {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 15px;
+  }
+
+  label {
+    display: block;
+    font-size: 14px;
+    text-align: left;
+    margin-bottom: 5px;
+  }
+
+  input, select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .submit-btn {
+    width: 100%;
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .submit-btn:hover {
+    background-color: #0056b3;
+  }
+
+  .payment-link {
+    margin-top: 15px;
+    display: none;
+  }
+
+  .payment-link a {
+    color: #007bff;
+    font-weight: bold;
+  }
+</style>
+
+<script>
+  document.getElementById('paymentForm').addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    const amount = document.getElementById('amount').value;
+    const currency = document.getElementById('currency').value;
+
+    // Генерация ссылки на оплату
+    const paymentLink = `https://www.coinpayments.net/payment?amount=${amount}&currency=${currency}`;
+
+    const paymentLinkContainer = document.getElementById('paymentLink');
+    const generatedLink = document.getElementById('generatedLink');
+    generatedLink.href = paymentLink;
+    generatedLink.textContent = "Click here for your payment link";
+    paymentLinkContainer.style.display = 'block';
+  });
+</script>
