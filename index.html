@@ -15,28 +15,28 @@
         }
         .header {
             background: white;
-            padding: 10px 40px;
+            padding: 20px 40px;
             display: flex;
             align-items: center;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            justify-content: space-between;
         }
         .header img {
-            height: 40px;
-            margin-right: 20px;
-        }
-        .header-text {
-            font-size: 14px;
-            color: #444;
+            height: 50px;
         }
         .header-text h1 {
             margin: 0;
             font-size: 24px;
             color: #333;
         }
+        .header-text p {
+            font-size: 14px;
+            color: #444;
+        }
         .container {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-start;
             max-width: 1100px;
             margin: 50px auto;
             padding: 20px;
@@ -120,11 +120,13 @@
             display: flex;
             justify-content: center;
             gap: 20px;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
+            overflow-x: auto; /* Horizontal scrolling */
             margin-top: 20px;
         }
         .company-logos img {
             height: 40px;
+            margin: 0 10px;
         }
     </style>
 </head>
