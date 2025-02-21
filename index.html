@@ -18,167 +18,71 @@
 
         .header {
             background: white;
-            padding: 10px 40px;
+            padding: 20px 40px;
             display: flex;
             align-items: center;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            height: auto;
         }
 
         .header img {
-            height: 40px;
+            height: 50px;
             margin-right: 20px;
         }
 
-        .text {
-            padding-top: 50px; /* Отступ сверху для текста */
-            margin-left: 50px;
+        .main-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .left-section {
             font-family: 'Poppins', sans-serif;
-            max-width: 50%; /* Ограничиваем ширину текста */
+            max-width: 50%;
         }
 
-        .text strong {
-            font-size: 32px;
-        }
-
-        .text h1 {
-            font-size: 40px;
+        .left-section h1 {
+            font-size: 50px;
             line-height: 1.1;
             margin-bottom: 20px;
         }
 
-        .text h1 span {
-            color: #0056b3;
-        }
-
-        .text p {
-            font-size: 16px;
+        .left-section p {
+            font-size: 18px;
             color: #555;
-            line-height: 1.5;
         }
 
         .payment-container {
-            display: flex;
-            justify-content: flex-end;
-            max-width: 1100px;
-            margin: 50px auto;
-            padding: 20px;
-        }
-
-        .payment-box {
             background: white;
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             width: 400px;
-            text-align: center;
-            margin-left: 50px; /* Отступ слева для окна оплаты */
         }
 
         .payment-box h2 {
             color: #0056b3;
+            font-size: 24px;
             margin-bottom: 20px;
-        }
-
-        .form-group {
-            text-align: left;
-            margin-bottom: 15px;
-        }
-
-        label {
-            display: block;
-            font-size: 14px;
-            margin-bottom: 5px;
-        }
-
-        input, select {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-
-        .btn {
-            width: 100%;
-            background-color: #0056b3;
-            color: white;
-            padding: 12px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s ease;
-        }
-
-        .btn:hover {
-            background-color: #004494;
-        }
-
-        .payment-link {
-            margin-top: 20px;
-            display: none;
-        }
-
-        .payment-link a {
-            color: #0056b3;
-            font-weight: bold;
-            text-decoration: none;
-        }
-
-        .payment-link a:hover {
-            text-decoration: underline;
         }
 
         .footer {
             background-color: #20263B;
             color: white;
             text-align: center;
-            padding: 40px 0;
+            padding: 50px 0;
         }
 
         .footer-logo {
-            width: 150px;
-            margin-bottom: 20px;
-        }
-
-        .footer-text {
-            max-width: 80%;
-            margin-left: auto;
-            margin-right: auto;
-            margin-bottom: 40px;
-            white-space: pre-line;
-        }
-
-        .footer-socials {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
+            width: 180px;
+            margin-bottom: 30px;
         }
 
         .footer-socials a {
             color: white;
-        }
-
-        .footer-socials img {
-            width: 30px;
-            height: 30px;
-        }
-
-        .footer-copyright-notice {
-            text-align: center;
-            margin: 20px auto;
-            font-size: 14px;
-            color: white;
-        }
-
-        .footer-copyright-notice a {
-            color: #ccc;
-            text-decoration: none;
-        }
-
-        .footer-copyright-notice a:hover {
-            text-decoration: underline;
+            margin: 0 15px;
         }
     </style>
 </head>
@@ -188,72 +92,44 @@
         <img src="https://www.coinpayments.net/2024.03/img/cps-since.svg" alt="CoinPayments Logo">
     </div>
 
-    <div class="text">
-        <strong>CoinPayments for Business</strong>
-        <h1>
-            <span>Secure</span> &amp; 
-            <span>Trusted</span> Crypto Payment Gateway
-        </h1>
-        <strong>Since 
-            <span>2013</span>
-        </strong>
-        <p>Expand your business with confidence. Instant, secure and borderless crypto payments with over 100 coins supported.</p>
-    </div>
+    <div class="main-container">
+        <div class="left-section">
+            <h1>Secure & Trusted Crypto Payment Gateway</h1>
+            <p>Expand your business with confidence. Instant, secure, and borderless crypto payments with over 100 coins supported.</p>
+        </div>
 
-    <div class="payment-container">
-        <div class="payment-box">
+        <div class="payment-container">
             <h2>Payment Request</h2>
-            <form id="paymentForm">
-                <div class="form-group">
-                    <label for="amount">Amount:</label>
-                    <input type="text" id="amount" name="amount" placeholder="Enter Amount" required>
+            <!-- Вставка блока для оплаты -->
+            <div class="payment-box">
+                <form id="paymentForm">
+                    <div class="form-group">
+                        <label for="amount">Amount:</label>
+                        <input type="text" id="amount" name="amount" placeholder="Enter Amount" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="currency">Currency:</label>
+                        <select id="currency" name="currency" required>
+                            <option value="BTC">BTC</option>
+                            <option value="ETH">ETH</option>
+                            <option value="USDT">USDT</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn">Generate Payment Link</button>
+                </form>
+                <div id="paymentLink" class="payment-link">
+                    <a href="#" target="_blank" id="generatedLink">Click here for your payment link</a>
                 </div>
-                <div class="form-group">
-                    <label for="currency">Currency:</label>
-                    <select id="currency" name="currency" required>
-                        <option value="BTC">BTC</option>
-                        <option value="ETH">ETH</option>
-                        <option value="USDT">USDT</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn">Generate Payment Link</button>
-            </form>
-            <div id="paymentLink" class="payment-link">
-                <a href="#" target="_blank" id="generatedLink">Click here for your payment link</a>
             </div>
         </div>
     </div>
 
     <div class="footer">
         <img class="footer-logo" src="https://www.coinpayments.net/images/home4/Logos/CoinPayments%20Logo%20White%20Text.svg" alt="CoinPayments Logo">
-        <div class="footer-text">
-            © 2013-2025 CoinPayments Inc. All Rights Reserved.<br>
-            Custodial wallet services and other virtual asset services provided by UAB Star Ventures, PaidInSatoshi Inc. or their partners.<br>
-            UAB Star Ventures, Kalvarij g. 125, Vilnius, Lithuania, <a href="mailto:contact@uabsv.com">contact@uabsv.com</a><br>
-            PaidInSatoshi Inc., Bloc Office Hub, Fifth Floor, Santa Maria Business District, Panama City, the Republic of Panama. <a href="mailto:contact@paidinsatoshi.com">contact@paidinsatoshi.com</a>
-        </div>
         <div class="footer-socials">
-            <a href="https://twitter.com/CoinPaymentsNET" target="_blank" rel="nofollow noopener noreferrer">
-                <img src="https://www.coinpayments.net/images/home4/Logos/social/twitter.svg" alt="twitter">
-            </a>
-            <a href="https://www.instagram.com/coinpayments/" target="_blank" rel="nofollow noopener noreferrer">
-                <img src="https://www.coinpayments.net/images/home4/Logos/social/instagram.svg" alt="instagram">
-            </a>
-            <a href="https://www.facebook.com/CoinPayments" target="_blank" rel="nofollow noopener noreferrer">
-                <img src="https://www.coinpayments.net/images/home4/Logos/social/facebook.svg" alt="facebook">
-            </a>
-            <a href="https://t.me/coinpaymentsinc" target="_blank" rel="nofollow noopener noreferrer">
-                <img src="https://www.coinpayments.net/images/home4/Logos/social/telegram.svg" alt="telegram">
-            </a>
-            <a href="https://www.linkedin.com/company/coinpayments-inc/" target="_blank" rel="nofollow noopener noreferrer">
-                <img src="https://www.coinpayments.net/images/home4/Logos/social/linkedin.svg" alt="linkedin">
-            </a>
-            <a href="https://www.youtube.com/CoinPayments" target="_blank" rel="nofollow noopener noreferrer">
-                <img src="https://www.coinpayments.net/images/home4/Logos/social/youtube.svg" alt="youtube">
-            </a>
-            <a href="https://www.pinterest.com/coinpaymentsinc/_created/" target="_blank" rel="nofollow noopener noreferrer">
-                <img src="https://www.coinpayments.net/images/home4/Logos/social/pinterest.svg" alt="pinterest">
-            </a>
+            <a href="https://twitter.com/CoinPaymentsNET" target="_blank">Twitter</a>
+            <a href="https://www.instagram.com/coinpayments/" target="_blank">Instagram</a>
+            <a href="https://www.facebook.com/CoinPayments" target="_blank">Facebook</a>
         </div>
     </div>
 
