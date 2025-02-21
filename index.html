@@ -20,7 +20,7 @@
             align-items: center;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             justify-content: space-between;
-            height: 120px; /* Увеличиваем высоту шапки */
+            height: 120px;
         }
         .header img {
             height: 50px;
@@ -130,6 +130,34 @@
             height: 40px;
             margin-right: 15px;
         }
+        .footer {
+            background-color: #f7f7f7;
+            padding: 40px 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #555;
+        }
+        .footer p {
+            margin: 10px 0;
+        }
+        .footer a {
+            color: #0056b3;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        .footer .social-icons {
+            margin-top: 20px;
+        }
+        .footer .social-icons a {
+            margin: 0 15px;
+            font-size: 20px;
+            color: #555;
+        }
+        .footer .social-icons a:hover {
+            color: #0056b3;
+        }
     </style>
 </head>
 <body>
@@ -139,57 +167,4 @@
             <h1>CoinPayments</h1>
             <p>Secure & Trusted Crypto Payment Gateway<br>
             Since 2013<br>
-            Expand your payments with confidence. Instant, secure and borderless crypto payments with over 100 coins supported.</p>
-        </div>
-    </div>
-    <div class="container">
-        <div class="text-content">
-            <h1>Expand Your Payments</h1>
-            <p>Instant, secure and borderless crypto payments with over 100 coins supported. Accept crypto payments worldwide with CoinPayments.</p>
-        </div>
-        <div class="payment-box">
-            <h2>Payment Request</h2>
-            <form id="paymentForm">
-                <div class="form-group">
-                    <label for="amount">Amount:</label>
-                    <input type="text" id="amount" name="amount" placeholder="Enter Amount" required>
-                </div>
-                <div class="form-group">
-                    <label for="currency">Currency:</label>
-                    <select id="currency" name="currency" required>
-                        <option value="BTC">BTC</option>
-                        <option value="ETH">ETH</option>
-                        <option value="USDT">USDT</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn">Generate Payment Link</button>
-            </form>
-            <div id="paymentLink" class="payment-link">
-                <a href="#" target="_blank" id="generatedLink">Click here for your payment link</a>
-            </div>
-        </div>
-    </div>
-    <div class="trusted-companies">
-        <h2>Trusted by Thousands of Companies</h2>
-        <div class="company-logos">
-            <img src="https://via.placeholder.com/100x40" alt="Company 1">
-            <img src="https://via.placeholder.com/100x40" alt="Company 2">
-            <img src="https://via.placeholder.com/100x40" alt="Company 3">
-            <img src="https://via.placeholder.com/100x40" alt="Company 4">
-        </div>
-    </div>
-    <script>
-        document.getElementById('paymentForm').addEventListener('submit', function (event) {
-            event.preventDefault();
-            const amount = document.getElementById('amount').value;
-            const currency = document.getElementById('currency').value;
-            const paymentLink = `https://www.coinpayments.net/payment?amount=${amount}&currency=${currency}`;
-            const paymentLinkContainer = document.getElementById('paymentLink');
-            const generatedLink = document.getElementById('generatedLink');
-            generatedLink.href = paymentLink;
-            generatedLink.textContent = "Click here for your payment link";
-            paymentLinkContainer.style.display = 'block';
-        });
-    </script>
-</body>
-</html>
+            Expand your payments with confidence. Instant, secure and borderless crypto pay
