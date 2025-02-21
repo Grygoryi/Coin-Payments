@@ -30,17 +30,6 @@
             margin-right: 20px;
         }
 
-        .header-text {
-            font-size: 14px;
-            color: #444;
-        }
-
-        .header-text h1 {
-            margin: 0;
-            font-size: 24px;
-            color: #333;
-        }
-
         .left-section {
             padding-left: 50px;
             font-family: 'Poppins', sans-serif;
@@ -151,7 +140,7 @@
         }
 
         .footer-text {
-            max-width: 80%;
+            max-width: 20%;
             margin-left: auto;
             margin-right: auto;
             margin-bottom: 40px;
@@ -171,6 +160,22 @@
         .footer-socials img {
             width: 30px;
             height: 30px;
+        }
+
+        .footer-copyright-notice {
+            text-align: center;
+            margin: 20px auto;
+            font-size: 14px;
+            color: white;
+        }
+
+        .footer-copyright-notice a {
+            color: #ccc;
+            text-decoration: none;
+        }
+
+        .footer-copyright-notice a:hover {
+            text-decoration: underline;
         }
 
         .text {
@@ -200,20 +205,12 @@
             line-height: 1.5;
         }
 
-        .footer-copyright-notice {
-            text-align: center;
-            margin: 20px auto;
-            font-size: 14px;
-            color: white;
-        }
-
-        .footer-copyright-notice a {
-            color: #ccc;
-            text-decoration: none;
-        }
-
-        .footer-copyright-notice a:hover {
-            text-decoration: underline;
+        .payment-container {
+            display: flex;
+            justify-content: flex-end;
+            max-width: 1100px;
+            margin: 50px auto;
+            padding: 20px;
         }
     </style>
 </head>
@@ -221,17 +218,10 @@
 
     <div class="header">
         <img src="https://www.coinpayments.net/2024.03/img/cps-since.svg" alt="CoinPayments Logo">
-        <div class="header-text">
-            <h1>CoinPayments</h1>
-            <p>Secure & Trusted Crypto Payment Gateway<br> Since 2013<br> Expand your payments with confidence. Instant, secure and borderless crypto payments with over 100 coins supported.</p>
-        </div>
     </div>
 
     <div class="text">
         <strong>CoinPayments for Business</strong>
-        <div class="small image">
-            <img src="/2024.03/img/hero-illustration.png" alt="Hero Illustration">
-        </div>
         <h1>
             <span>Secure</span> &amp; 
             <span>Trusted</span> Crypto Payment Gateway
@@ -242,7 +232,7 @@
         <p>Expand your business with confidence. Instant, secure and borderless crypto payments with over 100 coins supported.</p>
     </div>
 
-    <div class="container">
+    <div class="payment-container">
         <div class="payment-box">
             <h2>Payment Request</h2>
             <form id="paymentForm">
