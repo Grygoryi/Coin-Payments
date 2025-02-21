@@ -22,6 +22,7 @@
             display: flex;
             align-items: center;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            height: auto;
         }
 
         .header img {
@@ -54,6 +55,12 @@
             margin: 10px 0;
         }
 
+        .left-section p {
+            font-size: 18px;
+            color: #555;
+            line-height: 1.5;
+        }
+
         .container {
             display: flex;
             justify-content: space-between;
@@ -65,18 +72,6 @@
 
         .text-content {
             max-width: 50%;
-        }
-
-        .text-content h1 {
-            font-size: 32px;
-            color: #0056b3;
-            margin-bottom: 10px;
-        }
-
-        .text-content p {
-            font-size: 16px;
-            color: #555;
-            line-height: 1.5;
         }
 
         .payment-box {
@@ -177,6 +172,49 @@
             width: 30px;
             height: 30px;
         }
+
+        .text {
+            text-align: left;
+            margin-left: 50px;
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 50px;
+        }
+
+        .text strong {
+            font-size: 32px;
+        }
+
+        .text h1 {
+            font-size: 40px;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .text h1 span {
+            color: #0056b3;
+        }
+
+        .text p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        .footer-copyright-notice {
+            text-align: center;
+            margin: 20px auto;
+            font-size: 14px;
+            color: white;
+        }
+
+        .footer-copyright-notice a {
+            color: #ccc;
+            text-decoration: none;
+        }
+
+        .footer-copyright-notice a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -189,11 +227,22 @@
         </div>
     </div>
 
-    <div class="container">
-        <div class="left-section">
-            <h1>CoinPayments for Business</h1>
-            <p>Secure & Trusted Crypto Payment Gateway<br> Since 2013</p>
+    <div class="text">
+        <strong>CoinPayments for Business</strong>
+        <div class="small image">
+            <img src="/2024.03/img/hero-illustration.png" alt="Hero Illustration">
         </div>
+        <h1>
+            <span>Secure</span> &amp; 
+            <span>Trusted</span> Crypto Payment Gateway
+        </h1>
+        <strong>Since 
+            <span>2013</span>
+        </strong>
+        <p>Expand your business with confidence. Instant, secure and borderless crypto payments with over 100 coins supported.</p>
+    </div>
+
+    <div class="container">
         <div class="payment-box">
             <h2>Payment Request</h2>
             <form id="paymentForm">
@@ -222,8 +271,8 @@
         <div class="footer-text">
             © 2013-2025 CoinPayments Inc. All Rights Reserved.<br>
             Custodial wallet services and other virtual asset services provided by UAB Star Ventures, PaidInSatoshi Inc. or their partners.<br>
-            UAB Star Ventures, Kalvarij g. 125, Vilnius, Lithuania, contact@uabsv.com<br>
-            PaidInSatoshi Inc., Bloc Office Hub, Fifth Floor, Santa Maria Business District, Panama City, the Republic of Panama. contact@paidinsatoshi.com
+            UAB Star Ventures, Kalvarij g. 125, Vilnius, Lithuania, <a href="mailto:contact@uabsv.com">contact@uabsv.com</a><br>
+            PaidInSatoshi Inc., Bloc Office Hub, Fifth Floor, Santa Maria Business District, Panama City, the Republic of Panama. <a href="mailto:contact@paidinsatoshi.com">contact@paidinsatoshi.com</a>
         </div>
         <div class="footer-socials">
             <a href="https://twitter.com/CoinPaymentsNET" target="_blank" rel="nofollow noopener noreferrer">
