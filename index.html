@@ -250,19 +250,47 @@
         </div>
     </div>
 
-    <script>
-        document.getElementById('paymentForm').addEventListener('submit', function (event) {
-            event.preventDefault();
-            const amount = document.getElementById('amount').value;
-            const currency = document.getElementById('currency').value;
-            const paymentLink = `https://www.coinpayments.net/payment?amount=${amount}&currency=${currency}`;
-            const paymentLinkContainer = document.getElementById('paymentLink');
-            const generatedLink = document.getElementById('generatedLink');
-            generatedLink.href = paymentLink;
-            generatedLink.textContent = "Click here for your payment link";
-            paymentLinkContainer.style.display = 'block';
-        });
-    </script>
+<script>
+    document.getElementById('paymentForm').addEventListener('submit', async function (event) {
+        event.preventDefault();
+
+        const amount = document.getElementById('amount').value;
+        const currency = document.getElementById('currency').value;
+
+        try {
+            const response = await fetch('https://api.cryptocloud.plus/v1/invoice/create', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ТВОЙ_API_КЛЮЧ'
+                },
+                body: JSON.stringify({
+                    shop_id: "ТВОЙ_SHOP_ID",
+                    amount: amount,
+                    currency: currency,
+                    order_id: Math.floor(Math.random() * 1000000).toString(),
+                    success_url: "https://твой_сайт/success",
+                    fail_url: "https://твой_сайт/fail"
+                })
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                const paymentLinkContainer = document.getElementById('paymentLink');
+                const generatedLink = document.getElementById('generatedLink');
+                generatedLink.href = result.result.pay_url;
+                generatedLink.textContent = "Click here for your payment link";
+                paymentLinkContainer.style.display = 'block';
+            } else {
+                alert("Error creating payment link: " + result.message);
+            }
+        } catch (error) {
+            console.error("Error:", error);
+            alert("Failed to create payment link");
+        }
+    });
+</script>
 
 </body>
 </html>
