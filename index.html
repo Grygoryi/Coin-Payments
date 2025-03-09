@@ -121,6 +121,58 @@
         .payment-link a:hover {
             text-decoration: underline;
         }
+
+        .footer {
+            background-color: #20263B;
+            color: white;
+            text-align: center;
+            padding: 50px 0;
+        }
+
+        .footer-logo {
+            width: 180px;
+            margin-bottom: 30px;
+        }
+
+        .footer-text {
+            max-width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 40px;
+            white-space: pre-line;
+            font-size: 16px;
+        }
+
+        .footer-socials {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .footer-socials a {
+            color: white;
+        }
+
+        .footer-socials img {
+            width: 32px;
+            height: 32px;
+        }
+
+        .footer-copyright-notice {
+            font-size: 14px;
+            color: #ccc;
+            margin-top: 20px;
+        }
+
+        .footer-copyright-notice a {
+            color: #ccc;
+            text-decoration: none;
+        }
+
+        .footer-copyright-notice a:hover {
+            text-decoration: underline;
+        }
+
     </style>
 </head>
 <body>
@@ -137,11 +189,12 @@
 
         <div class="payment-container">
             <h2>Payment Request</h2>
+            <!-- Вставка блока для оплаты -->
             <div class="payment-box">
                 <form id="paymentForm">
                     <div class="form-group">
                         <label for="amount">Amount:</label>
-                        <input type="number" id="amount" name="amount" placeholder="Enter Amount" step="any" min="0.0001" required>
+                        <input type="text" id="amount" name="amount" placeholder="Enter Amount" required>
                     </div>
                     <div class="form-group">
                         <label for="currency">Currency:</label>
@@ -160,43 +213,56 @@
         </div>
     </div>
 
-<script>
-document.getElementById('paymentForm').addEventListener('submit', async function (event) {
-    event.preventDefault();
+    <div class="footer">
+        <img class="footer-logo" src="https://www.coinpayments.net/images/home4/Logos/CoinPayments%20Logo%20White%20Text.svg" alt="CoinPayments Logo">
+        <div class="footer-text">
+            © 2013-2025 CoinPayments Inc. All Rights Reserved.<br>
+            Custodial wallet services and other virtual asset services provided by UAB Star Ventures, PaidInSatoshi Inc. or their partners.<br>
+            UAB Star Ventures, Kalvarij g. 125, Vilnius, Lithuania, <a href="mailto:contact@uabhv.com">contact@uabhv.com</a><br>
+            PaidInSatoshi Inc., Bloc Office Hub, Fifth Floor, Santa Maria Business District, Panama City, the Republic of Panama. <a href="mailto:contact@paidsinsatoshi.com">contact@paidsinsatoshi.com</a>
+        </div>
+        <div class="footer-socials">
+            <a href="https://twitter.com/CoinPaymentsNET" target="_blank" rel="nofollow noopener noreferrer">
+                <img src="https://www.coinpayments.net/images/home4/Logos/social/twitter.svg" alt="twitter">
+            </a>
+            <a href="https://www.instagram.com/coinpayments/" target="_blank" rel="nofollow noopener noreferrer">
+                <img src="https://www.coinpayments.net/images/home4/Logos/social/instagram.svg" alt="instagram">
+            </a>
+            <a href="https://www.facebook.com/CoinPayments" target="_blank" rel="nofollow noopener noreferrer">
+                <img src="https://www.coinpayments.net/images/home4/Logos/social/facebook.svg" alt="facebook">
+            </a>
+            <a href="https://t.me/CoinListSaleBot" target="_blank" rel="nofollow noopener noreferrer">
+                <img src="https://www.coinpayments.net/images/home4/Logos/social/telegram.svg" alt="telegram">
+            </a>
+            <a href="https://www.linkedin.com/company/coinpayments-inc/" target="_blank" rel="nofollow noopener noreferrer">
+                <img src="https://www.coinpayments.net/images/home4/Logos/social/linkedin.svg" alt="linkedin">
+            </a>
+            <a href="https://www.youtube.com/CoinPayments" target="_blank" rel="nofollow noopener noreferrer">
+                <img src="https://www.coinpayments.net/images/home4/Logos/social/youtube.svg" alt="youtube">
+            </a>
+            <a href="https://www.pinterest.com/coinpaymentsinc/_created/" target="_blank" rel="nofollow noopener noreferrer">
+                <img src="https://www.coinpayments.net/images/home4/Logos/social/pinterest.svg" alt="pinterest">
+            </a>
+        </div>
+        <div class="footer-copyright-notice">
+            <p>&copy; 2013-2025 CoinPayments Inc. All Rights Reserved.</p>
+            <p><a href="mailto:contact@coinpayments.net">Contact Us</a></p>
+        </div>
+    </div>
 
-    const amount = document.getElementById('amount').value;
-    const currency = document.getElementById('currency').value;
-
-    if (amount <= 0) {
-        alert("Amount must be greater than zero.");
-        return;
-    }
-
-    try {
-        const response = await fetch('/create-payment', { // ✅ Теперь запрос идет на сервер
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ amount, currency })
-        });
-
-        const result = await response.json();
-
-        if (result && result.url) {
+    <script>
+        document.getElementById('paymentForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const amount = document.getElementById('amount').value;
+            const currency = document.getElementById('currency').value;
+            const paymentLink = `https://www.coinpayments.net/payment?amount=${amount}&currency=${currency}`;
             const paymentLinkContainer = document.getElementById('paymentLink');
             const generatedLink = document.getElementById('generatedLink');
-
-            generatedLink.href = result.url;
-            generatedLink.textContent = "Перейти к оплате";
+            generatedLink.href = paymentLink;
+            generatedLink.textContent = "Click here for your payment link";
             paymentLinkContainer.style.display = 'block';
-        } else {
-            alert("Ошибка при создании платежа.");
-        }
-    } catch (error) {
-        console.error("Ошибка запроса:", error);
-        alert("Не удалось создать платёж.");
-    }
-});
-</script>
+        });
+    </script>
 
 </body>
 </html>
